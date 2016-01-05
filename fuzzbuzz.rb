@@ -1,6 +1,20 @@
 class FuzzBuzz
 
-  def print number
+  def print(numbers)
+    if numbers.respond_to?("each")
+      output = []
+      numbers.each do |number|
+        output << test(number)
+      end
+    else
+      output = test numbers
+    end
+    output
+  end
+
+
+private
+  def test number
 
     if number%15 == 0
       "FuzzBuzz"
