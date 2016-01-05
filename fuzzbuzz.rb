@@ -15,6 +15,8 @@ class FuzzBuzz
 
 private
   def test number
+    raise ArgumentError unless number > 0
+    raise ArgumentError, "Integers only" unless number.is_a? Integer
 
     if number%15 == 0
       "FuzzBuzz"
